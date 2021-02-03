@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "c1ac81d3-9660-42a6-83a4-d236fa42a005",
+		"name": "CheckoutTechTestRequests",
+		"description": "For Engineering Lead to convenient test the application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request Payment 1 - Valid - Merchant 1",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "testMerchant1Key3264",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"card_number\" : \"4242424242424242\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"100\",\n\t\"amount\": 12.99,\n\t\"currency\" : \"EUR\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments"
+					]
+				},
+				"description": "It is a visa card payment"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment Details 1 - Merchant 1",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "testMerchant1Key3264",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/payments/9ed809ee-1c50-4281-a996-283648a668c0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments",
+						"9ed809ee-1c50-4281-a996-283648a668c0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Payment 2 - Invalid - Merchant 1",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "testMerchant1Key3264",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"card_number\" : \"5454545454545454\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"123\",\n\t\"amount\": 12.99,\n\t\"currency\" : \"EUR\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment Details 2 - Merchant 1",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "testMerchant1Key3264",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/payments/a5e5b4c4-a20b-4ba9-8fde-fefe78d5ec45",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments",
+						"a5e5b4c4-a20b-4ba9-8fde-fefe78d5ec45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Payment 3 - Valid - Amex - Merchant 2",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "checkout-key",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"card_number\" : \"345678901234564\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"1051\",\n\t\"amount\": 21.99,\n\t\"currency\" : \"GBP\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments"
+					]
+				},
+				"description": "It is a visa card payment"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment Details 3 - Amex - Merchant 2",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "checkout-key",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/payments/579b844d-59bc-4200-a7da-ac4690283b54",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments",
+						"579b844d-59bc-4200-a7da-ac4690283b54"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Payment 4 - Invalid - Amex - Merchant 2",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "checkout-key",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"card_number\" : \"371449635398431\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"2123\",\n\t\"amount\": 451.99,\n\t\"currency\" : \"GBP\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments"
+					]
+				},
+				"description": "It is a visa card payment"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment Details 4 - Amex - Merchant 2",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "checkout-key",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "MerchantApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/payments/db255c35-50ba-4dcb-96df-c03f150feeba",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"payments",
+						"db255c35-50ba-4dcb-96df-c03f150feeba"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

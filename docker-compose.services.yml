@@ -1,0 +1,38 @@
+version: "3.5"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./src/PaymentGateway.Api/Dockerfile
+    container_name: api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://*:5000
+      - "CONFIG_Endpoints:AcquiringBankEndPoint=http://simulator:5007/api"
+      - "CONFIG_ConnectionStrings:GatewayDbConnectionString=Server=ms-sql;database=Gateway;uid=sa;pwd=Password123"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - ms-sql
+      - simulator
+    networks:
+      - network
+
+  simulator:
+    build:
+      context: .
+      dockerfile: ./src/PaymentGateway.BankProcessor.Simulator/Dockerfile
+    container_name: simulator
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://*:5007
+    ports:
+      - "5007:5007"
+    networks:
+      - network
+      
+networks:
+  network:
+    name: network
+        
