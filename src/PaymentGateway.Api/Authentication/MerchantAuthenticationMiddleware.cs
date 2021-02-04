@@ -22,11 +22,10 @@ namespace PaymentGateway.Api.Authentication
         {
             if (context.Request.Path.StartsWithSegments(new PathString("/api")))
             {
-                //Let's check if this is an API Call
+                //Let's check if it has an api key in header
                 if (context.Request.Headers.Keys.Contains(_merchantApiKeyHeader, StringComparer.InvariantCultureIgnoreCase))
                 {
-                    // validate the supplied API key
-                    // Validate it
+                    // Check that the API key is valid
                     var headerKey = context.Request.Headers[_merchantApiKeyHeader].FirstOrDefault();
                     await CheckMerchantApiKey(merchantRepository, context, _next, headerKey);
                 }
@@ -46,13 +45,9 @@ namespace PaymentGateway.Api.Authentication
         private async Task CheckMerchantApiKey(IRepository<Merchant> merchantRepository, HttpContext context, RequestDelegate next, string key)
         {
             // find Merchant by key
-            var valid = false;
-            // Check Merchant Validity
             var merchant = await merchantRepository.GetSingleByQueryAsync(m => m.ApiKey == key);
-
-            if (merchant != null) //  has key
-                valid = true;
-            if (!valid)
+            
+            if (merchant == null) //  key doesn't exists
             {
                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 await context.Response.WriteAsync("Invalid Merchant API Key");

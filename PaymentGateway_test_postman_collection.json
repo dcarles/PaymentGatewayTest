@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "c1ac81d3-9660-42a6-83a4-d236fa42a005",
-		"name": "CheckoutTechTestRequests",
-		"description": "For Engineering Lead to convenient test the application",
+		"name": "PaymentGatewayTestRequests",
+		"description": "To easily test the application",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -34,7 +34,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"card_number\" : \"4242424242424242\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"100\",\n\t\"amount\": 12.99,\n\t\"currency\" : \"EUR\"\n}"
+					"raw": "{\n\t\"card_number\" : \"4234123412341234\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"100\",\n\t\"amount\": 12.99,\n\t\"currency\" : \"EUR\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5000/api/payments",
@@ -73,7 +73,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/payments/9ed809ee-1c50-4281-a996-283648a668c0",
+					"raw": "http://localhost:5000/api/payments/501fe141-e97d-4002-b42f-379e53e6b108",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -82,7 +82,7 @@
 					"path": [
 						"api",
 						"payments",
-						"9ed809ee-1c50-4281-a996-283648a668c0"
+						"501fe141-e97d-4002-b42f-379e53e6b108"
 					]
 				}
 			},
@@ -116,7 +116,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"card_number\" : \"5454545454545454\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"123\",\n\t\"amount\": 12.99,\n\t\"currency\" : \"EUR\"\n}"
+					"raw": "{\n\t\"card_number\" : \"5353535353535353\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"123\",\n\t\"amount\": 12.99,\n\t\"currency\" : \"EUR\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5000/api/payments",
@@ -154,7 +154,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/payments/a5e5b4c4-a20b-4ba9-8fde-fefe78d5ec45",
+					"raw": "http://localhost:5000/api/payments/6ec67221-2582-41e4-90fe-a2767984aaad",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -163,7 +163,7 @@
 					"path": [
 						"api",
 						"payments",
-						"a5e5b4c4-a20b-4ba9-8fde-fefe78d5ec45"
+						"6ec67221-2582-41e4-90fe-a2767984aaad"
 					]
 				}
 			},
@@ -177,7 +177,7 @@
 					"apikey": [
 						{
 							"key": "value",
-							"value": "checkout-key",
+							"value": "testMerchant2Key007",
 							"type": "string"
 						},
 						{
@@ -197,7 +197,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"card_number\" : \"345678901234564\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"1051\",\n\t\"amount\": 21.99,\n\t\"currency\" : \"GBP\"\n}"
+					"raw": "{\n\t\"card_number\" : \"345377901232564\",\n\t\"expiry_month\" : 1,\n\t\"expiry_year\" : 2222,\n\t\"cvv\": \"1051\",\n\t\"amount\": 21.99,\n\t\"currency\" : \"GBP\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5000/api/payments",
@@ -223,7 +223,7 @@
 					"apikey": [
 						{
 							"key": "value",
-							"value": "checkout-key",
+							"value": "testMerchant2Key007",
 							"type": "string"
 						},
 						{
@@ -259,7 +259,7 @@
 					"apikey": [
 						{
 							"key": "value",
-							"value": "checkout-key",
+							"value": "testMerchant2Key007",
 							"type": "string"
 						},
 						{
@@ -305,7 +305,7 @@
 					"apikey": [
 						{
 							"key": "value",
-							"value": "checkout-key",
+							"value": "testMerchant2Key007",
 							"type": "string"
 						},
 						{

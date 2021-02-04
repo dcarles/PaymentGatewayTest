@@ -14,15 +14,7 @@ namespace PaymentGateway.Api.Core
             {
                 using (var appContext = scope.ServiceProvider.GetRequiredService<GatewayDbContext>())
                 {
-                    try
-                    {
-                        appContext.Database.Migrate();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Log error
-                        throw ex;
-                    }
+                    appContext.Database.Migrate();
                 }
             }
 

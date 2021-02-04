@@ -28,13 +28,6 @@ namespace PaymentGateway.Api.Controllers
 
         }
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok("I am working fine...");
-        }
-
-
         [HttpGet("{id:guid}", Name = "Get")]
         public async Task<IActionResult> Get(string id)
         {
